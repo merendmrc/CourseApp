@@ -6,6 +6,20 @@ Kurslar anasayfasi
 
 {% block content %}
 
-<h1>kurslar anasayfasi</h1>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-3">
+            {% include "courses/includes/_categories.html" %}
+        </div>
+        <div class="col-9"> 
+            {% for course in courses %}
+
+                {% include "courses/includes/_courses.html" %}  
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
 
 {% endblock  %}

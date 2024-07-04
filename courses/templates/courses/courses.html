@@ -1,19 +1,17 @@
 {% extends "layout.html" %}
 
 {% block Title %}
-About
+Kurslar anasayfasi
 {% endblock Title %}
-
-<title>About</title>
 
 {% block content %}
 
 <div class="container mt-3">
     <div class="row">
-        <div class="col-9"> 
-           <h1>hakkimizda</h1>
+        <div class="col-12">
+            <h1>{{category_name}}</h1>
+            <p>{{category_text}}</p>
         </div>
     </div>
 </div>
-
 {% endblock  %}
