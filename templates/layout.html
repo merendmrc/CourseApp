@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
+    {% block css_files %}
+    
+    {% endblock %}
+    <title>CA | {% block Title %}{% endblock  %}</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-success navbar-dark">
+        <div class="container">
+            <a href="/index" class="navbar-brand">Course App</a>
+            
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a href="/kurslar" class="nav-link navbar">
+                        Courses
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/contact" class="nav-link navbar">
+                        Contact
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link navbar">
+                        About
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-3">
+                <div class="list-group">
+                    <a href="" class="list-group-item list-group-item-action">Programlama</a>
+                    <a href="" class="list-group-item list-group-item-action">Web Geliştirme</a>
+                    <a href="" class="list-group-item list-group-item-action">Mobil Geliştirme</a>
+                </div>
+            </div>
+            <div class="col-9"> 
+                <!--CONTENT BURAYA-->
+                {% block content %}
+                
+                {% endblock content %}
+            </div>
+        </div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+{% block js_files %}{% endblock js_files %}
+</body>
+</html>
