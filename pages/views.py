@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.urls import reverse
 
-def iletisim(req):
-    return HttpResponse("merendmrcc@gmail.com")
 
-def hakkimizda(req):
-    return HttpResponse("hakkimizda")
+def index(req):
+    return render(req, template_name="pages/index.html")
 
-def home(req):
-    return HttpResponse("anasayfa")
+def contact(req):
+    return render(req, template_name="pages/contact.html")
+
+def about(req):
+    return render(req, template_name="pages/about.html")
+
 

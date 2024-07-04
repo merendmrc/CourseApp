@@ -8,6 +8,8 @@ data = {
     "mobil":"mobil gelistirme kategorisine ait kurslar"
 }
 
+def index(req):
+    return render(req, template_name="courses/index.html")
 
 def kurslar(req):
     category_list = list(data.keys())
