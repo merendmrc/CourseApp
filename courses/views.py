@@ -10,7 +10,20 @@ data = {
 
 
 def kurslar(req):
-    return HttpResponse("kurslar")
+    category_list = list(data.keys())
+    list_items = ""
+    for category in category_list:
+        redirect_url = reverse('courses_by_category_id',args=[category])
+        list_items += f"""
+        <li>
+        <a href="{redirect_url}">
+        {category}
+        </a>
+        </li>"""
+
+        html_content = f"<h1>Kurs Kategorileri</h1><br><ul>{list_items}</ul>"
+
+    return HttpResponse(html_content)
 
 def detaylar(req, kurs_adi):
     return HttpResponse(f"{kurs_adi} DETAY SAYFASI gozukecek")
@@ -23,6 +36,7 @@ def getCoursesByCategoryName(req, category_name):
         return HttpResponseNotFound("yanlis kategori secimi")
     
 def getCoursesByCategoryId(req, category_id):
+
     category_list = list(data.keys())
     if(category_id> len(category_list)):
         return HttpResponseNotFound("YANLIS KATEGORI SECIMI")
