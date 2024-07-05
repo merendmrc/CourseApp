@@ -1,8 +1,15 @@
 {% extends "layout.html" %}
 
+{% load static %}
+
 {% block Title %}
 Kurslar anasayfasi
 {% endblock Title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'courses/css/style.css'%}">
+{% endblock css_files %}
+
 
 {% block content %}
 
@@ -13,13 +20,15 @@ Kurslar anasayfasi
         </div>
         <div class="col-9"> 
             {% for course in courses %}
-
                 {% include "courses/includes/_courses.html" %}  
-
             {% endfor %}
         </div>
     </div>
 </div>
 
-
 {% endblock  %}
+
+{% block js_files %}
+<script src="{% static "courses/js/scripts.js" %}"></script>
+{% endblock js_files %}
+
