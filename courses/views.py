@@ -8,7 +8,11 @@ db = {
         {
             "title":"javascript kursu",
             "description":"javascript kurs aciklamasi",
+<<<<<<< HEAD
             "imageUrl":"js.jpg",  
+=======
+            "imageUrl":"https://assets-btkakademi-gov-tr.akamaized.net/api/gallery/51/b4ecb192-1e71-428d-8f40-a4eb05862bdb/78.jpg?t=1641991152632",  
+>>>>>>> 97ecdc5ea12880887ebbdea53986422be1516c71
             "slug":"javascript-kursu",
             "date":date(2023,11,14),
             "is_active":True,
@@ -16,8 +20,13 @@ db = {
         },
         {
             "title":"python kursu",
+<<<<<<< HEAD
             "description":"Python programlama dilini öğrenmek ve bu alanda yetkinlik kazanmak isteyenler için hazırlanan Python Programlama Kursu, hem başlangıç seviyesindeki hem de ileri düzeydeki katılımcılara yönelik kapsamlı bir eğitim sunmaktadır. Bu kurs, Python'un temellerinden başlayarak, ileri seviye konulara kadar geniş bir yelpazede bilgi ve beceri kazandırmayı amaçlamaktadır.",
             "imageUrl":"python.png",  
+=======
+            "description":"python kurs aciklamasi",
+            "imageUrl":"https://assets-btkakademi-gov-tr.akamaized.net/api/gallery/51/799d49f3-287b-444a-adc8-e73afc4ceed8/76_0x220.jpg?t=1640260383870",  
+>>>>>>> 97ecdc5ea12880887ebbdea53986422be1516c71
             "slug":"python-kursu",
             "date":date(2023,5,12),
             "is_active":True,
@@ -25,8 +34,13 @@ db = {
         },
         {
             "title":"mobil programlama kursu",
+<<<<<<< HEAD
             "description":"mobil programlama kurs aciklamasi",
             "imageUrl":"react.jpg",  
+=======
+            "description":"C# kurs aciklamasi",
+            "imageUrl":"https://assets-btkakademi-gov-tr.akamaized.net/api/gallery/51/10aff21b-0c0b-4bc4-b68c-dfda1ac33cb4/94.jpg?t=1640262259134",  
+>>>>>>> 97ecdc5ea12880887ebbdea53986422be1516c71
             "slug":"mobil-programlama-kursu",
             "date":date(2024,2,6),
             "is_active":False,
@@ -35,8 +49,13 @@ db = {
     ],
     "categories": [
         {"id":1, "name":"programlama","slug":"programlama"},
+<<<<<<< HEAD
         {"id":2, "name":"web gelistirme","slug":"web-gelistirme"},
         {"id":3, "name":"mobil uygulamalar","slug":"mobil-uygulamalar"},]
+=======
+        {"id":2, "name":"web gelistirme","slug":"web gelistirme"},
+        {"id":3, "name":"mobil uygulamalar","slug":"mobil uygulamalar"},]
+>>>>>>> 97ecdc5ea12880887ebbdea53986422be1516c71
 }
 
 def index(req):

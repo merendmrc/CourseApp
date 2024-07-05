@@ -1,5 +1,9 @@
 <div class="list-group">
     {% for category in categories %}
+<<<<<<< HEAD
         <a href="{% url "courses_by_category_id" category.slug %}" class="list-group-item list-group-item-action">{{category.name|title}}</a>
+=======
+        <a href="{% url "courses_by_category_id" category.slug %}" class="list-group-item list-group-item-action">{{category.name}}</a>
+>>>>>>> 97ecdc5ea12880887ebbdea53986422be1516c71
     {% endfor %}
 </div>
