@@ -2,6 +2,7 @@ from datetime import date
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,HttpResponseNotFound
 from django.urls import reverse
+from .models import Course
 
 db = {
     "courses" : [
@@ -40,7 +41,7 @@ db = {
 }
 
 def index(req):
-    courses = [course for course in db["courses"] if course["is_active"]]
+    courses = Course.objects.filter(is_active=1)
     categories = db["categories"]
 
     return render(req, template_name="courses/index.html", context={

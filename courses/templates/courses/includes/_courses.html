@@ -2,18 +2,14 @@
 <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="{% static 'courses/img/'|add:course.imageUrl%}" class="img-fluid rounded-start" alt="{{course.title}}">
+        <img src="{% static 'courses/img/'|add:course.imageUrl%}" class="img-fluid h-100 w-100" alt="{{course.title}}">
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">{{course.title}}</h5>
           <p class="card-text">{{course.description|truncatechars:50}}</p>
-            {% if course.is_updated %}
-                <span class="badge bg-success">Guncel</span>
-                {% else %}
-                <span class="badge bg-warning">Guncelleme bekliyor</span>
-            {% endif %}
-            <p class="card-text"><small class="text-muted">{{course.date}}</small></p>
+          <p class="card-text"><small class="text-muted">{{course.date}}</small></p>
+
         </div>
       </div>
     </div>
