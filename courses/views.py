@@ -1,8 +1,8 @@
 from datetime import date
-from django.shortcuts import render,redirect
-from django.http import HttpResponse,HttpResponseNotFound
+from django.shortcuts import get_object_or_404, render,redirect
+from django.http import HttpResponse,HttpResponseNotFound,Http404
 from django.urls import reverse
-from .models import Course
+from .models import Course,Category
 
 db = {
     "courses" : [
@@ -41,24 +41,27 @@ db = {
 }
 
 def index(req):
-    courses = Course.objects.filter(is_active=1)
-    categories = db["categories"]
+    courses = Course.objects.all()
+    categories = Category.objects.all()
 
     return render(req, template_name="courses/index.html", context={
         'categories': categories,
         'courses':courses
     })
 
-def detaylar(req, kurs_adi):
-    return HttpResponse(f"{kurs_adi} DETAY SAYFASI gozukecek")
+def details(req, slug):
+    course = get_object_or_404(Course, slug=slug)
+    context ={
+        'course': course
+    }
+    return render(req, template_name="courses/details.html", context=context)
+
+
 
 def getCoursesByCategoryName(req, category_name):
     try:
-        category_text = db[category_name]
-        return render(req, template_name='courses/courses.html', context={
-            'category_name':category_name,
-            'category_text':category_text
-        })
+        categories = Category.objects.all()
+        return render(req, template_name='courses/courses.html', context=categories)
     except:
         return HttpResponseNotFound("yanlis kategori secimi")
     

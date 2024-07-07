@@ -9,8 +9,9 @@ Kurslar anasayfasi
 <div class="container mt-3">
     <div class="row">
         <div class="col-12">
-            <h1>{{category_name}}</h1>
-            <p>{{category_text}}</p>
+            {% for category in categories %}
+            <h1>{{category.name}}</h1>
+            {% endfor %}
         </div>
     </div>
 </div>

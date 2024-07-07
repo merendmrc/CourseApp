@@ -1,16 +1,32 @@
 {% load static %}
-<div class="card mb-3" style="max-width: 540px;">
+<a href=" {% url "courses_details" course.slug %}" class="text-decoration-none">
+<div class="card mb-3" style="max-width: 540px; {% if course.is_active == 0 %}
+opacity: 0.6;
+{% endif %} ">
     <div class="row g-0">
       <div class="col-md-4">
         <img src="{% static 'courses/img/'|add:course.imageUrl%}" class="img-fluid h-100 w-100" alt="{{course.title}}">
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">{{course.title}}</h5>
-          <p class="card-text">{{course.description|truncatechars:50}}</p>
-          <p class="card-text"><small class="text-muted">{{course.date}}</small></p>
 
+            <h5 class="card-title">{{course.title}}</h5>
+
+          <p class="card-text">{{course.description|truncatechars:50}}</p>
+          <div class="row">
+            <div class="col-6 text-start">
+              <p class="card-text"><small class="text-muted">{{course.date}}</small></p>
+            </div>
+            <div class="col-6 text-end">
+              {% if course.is_active %}
+              <span class="badge bg-success">Aktif</span>
+              {% else %}
+              <span class="badge bg-warning">Aktif değil</span>
+              {% endif %}
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</a>

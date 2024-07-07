@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block Title %}
+{{course.title}}
+{% endblock Title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'courses/css/style.css'%}">
+{% endblock css_files %}
+
+
+{% block content %}
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-5">
+            <img src="{% static "/courses/img/"|add:course.imageUrl%}" class="img-fluid rounded" alt="{{course.title}}">
+        </div>
+        <div class="col-7"> 
+            <h1 class="h3">{{course.title}}</h1>
+            <p>{{course.description}}</p>
+            {% if course.is_active == 0 %}
+            <h1 class="badge bg-danger">
+                KURS AKTIF DEGIL!
+            </h1>
+        {% else %}
+        {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock  %}
+
+{% block js_files %}
+<script src="{% static "courses/js/scripts.js" %}"></script>
+{% endblock js_files %}
+
