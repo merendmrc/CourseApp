@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static "/css/ek.css" %}">
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css'%}" />
     {% block css_files %}
     
     {% endblock %}
     <title>CA | {% block Title %}{% endblock  %}</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-success navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0F5257;">
         <div class="container">
             <a href="/index" class="navbar-brand">Course App</a>
             

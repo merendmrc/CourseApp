@@ -19,6 +19,10 @@ Kurslar anasayfasi
             {% include "courses/includes/_categories.html" %}
         </div>
         <div class="col-9"> 
+            {% if courses|length == 0 %}
+                <div class="alert alert-warning">Sectiginiz kategoride kurs bulunamadi !</div>
+            {% else %}
+            {% endif %}
             {% for course in courses %}
                 {% include "courses/includes/_courses.html" %}  
             {% endfor %}

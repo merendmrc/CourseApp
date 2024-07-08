@@ -57,21 +57,11 @@ def details(req, slug):
     return render(req, template_name="courses/details.html", context=context)
 
 
-
-def getCoursesByCategoryName(req, category_name):
-    try:
-        categories = Category.objects.all()
-        return render(req, template_name='courses/courses.html', context=categories)
-    except:
-        return HttpResponseNotFound("yanlis kategori secimi")
-    
-def getCoursesByCategoryId(req, category_id):
-
-    category_list = list(data.keys())
-    if(category_id> len(category_list)):
-        return HttpResponseNotFound("YANLIS KATEGORI SECIMI")
-    category_name = category_list[category_id - 1]
-
-    redirect_url = reverse('courses_by_category_id',args=[category_name])
-
-    return redirect(redirect_url)
+def getCoursesByCategoryName(req, slug):
+    kurslar = Course.objects.filter(categories__slug=slug)
+    kategoriler = Category.objects.all()
+    return render(req, template_name="courses/index.html", context={
+        "courses" : kurslar,
+        "categories" : kategoriler,
+        "selected_category_id" : Category.objects.get(slug=slug).id
+    })
