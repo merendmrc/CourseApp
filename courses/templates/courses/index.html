@@ -19,13 +19,15 @@ Kurslar anasayfasi
             {% include "courses/includes/_categories.html" %}
         </div>
         <div class="col-9"> 
-            {% if courses|length == 0 %}
+            {% if page_obj.object_list|length == 0 %}
                 <div class="alert alert-warning">Sectiginiz kategoride kurs bulunamadi !</div>
             {% else %}
             {% endif %}
-            {% for course in courses %}
+            {% for course in page_obj.object_list %}
                 {% include "courses/includes/_courses.html" %}  
             {% endfor %}
+            {% include "courses/includes/_paginator.html" %}
+        
         </div>
     </div>
 </div>
