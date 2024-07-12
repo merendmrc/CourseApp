@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block Title %}
+Create Course
+{% endblock Title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'courses/css/style.css'%}">
+{% endblock css_files %}
+
+
+{% block content %}
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12">
+            <form action="{% url "create_course" %}" method="POST">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title:</label>
+                    <input class="form-control" type="text" name="title" id="">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description:</label>
+                    <textarea name="description" class="form-control" id=""></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="imageUrl" class="form-label">imageUrl:</label>
+                    <input type="text" class="form-control" name="imageUrl">
+                </div>
+                <div class="mb-3">
+                    <label for="slug" class="form-label">Slug:</label>
+                    <input type="text" class="form-control" name="slug">
+                </div>
+                <div class="mb-3">
+                    <label for="is_active" class="form-label">Is active:</label>
+                        <input class="form-check-input" type="checkbox" name="is_active" id="">
+                </div>
+                <div class="mb-3">
+                    <label for="is_home" class="form-label">Is home:</label>
+                        <input class="form-check-input" type="checkbox" name="is_home" id="">
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-success" type="submit">Kayit et</button>
+                </div>
+            </form>
+        </div>
+</div>
+
+{% endblock  %}
+
+{% block js_files %}
+<script src="{% static "courses/js/scripts.js" %}"></script>
+{% endblock js_files %}
+

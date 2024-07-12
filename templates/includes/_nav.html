@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#0A122A">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0F5257;">
     <div class="container">
         <a href="/index" class="navbar-brand">Course App</a>
         
@@ -9,15 +9,16 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/contact" class="nav-link navbar">
-                    Contact
+                <a href="{% url "create_course" %}" class="nav-link navbar">
+                    Kurs ekle
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="/about" class="nav-link navbar">
-                    About
-                </a>
-            </li>
+
         </ul>
+        <form action="{% url "search" %}" class="d-flex" role="search">
+            <input name="q" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+        
     </div>
 </nav>
