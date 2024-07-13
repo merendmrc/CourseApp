@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render,redirect
 from .models import Course,Category
 from django.core.paginator import Paginator
 from django.db.models import Q
+from courses.forms import CreateCourseForm
 
 def index(req):
     courses = Course.objects.filter(is_home = 1)
@@ -50,4 +51,17 @@ def getCoursesByCategoryName(req, slug):
 
 
 def create_course(req):
-    return render(req, template_name="courses/create_course.html")
+   
+    if req.method == "POST":
+        form = CreateCourseForm(req.POST)
+        
+        if form.is_valid():
+            Course(
+                title= form.cleaned_data["title"],
+                description= form.cleaned_data["description"],
+                slug= form.cleaned_data["slug"],
+                imageUrl= form.cleaned_data["imageUrl"]
+            ).save()
+    else:
+        form = CreateCourseForm()
+    return render(req, template_name="courses/create_course.html",context={"form":form})
