@@ -15,13 +15,20 @@ Create Course
 
 <div class="container mt-3">
     <div class="row">
-        <div class="col-12">
-            <form action="{% url "create_course" %}" method="POST">
+        <div class="col-5">
+            <form action="{% url "create_course" %}" method="POST" novalidate>
                 {% csrf_token %}
-                {{form}}
-                <div class="mb-3">
-                    <button class="btn btn-success" type="submit">Kayit et</button>
+
+                {% for item in form %}
+                <div class="mb-3 {% if item.errors %}invalid{% endif %}">
+                    <label for="{{item.id_for_label}}" class="form-label">{{item.label}}:</label>
+                    {{item}} {{item.errors}}
                 </div>
+                {% endfor %}
+                <button class="btn btn-success" type="submit">
+                    Kaydet
+                </button>
+                
             </form>
         </div>
 </div>

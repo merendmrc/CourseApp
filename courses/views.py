@@ -56,12 +56,7 @@ def create_course(req):
         form = CreateCourseForm(req.POST)
         
         if form.is_valid():
-            Course(
-                title= form.cleaned_data["title"],
-                description= form.cleaned_data["description"],
-                slug= form.cleaned_data["slug"],
-                imageUrl= form.cleaned_data["imageUrl"]
-            ).save()
+            form.save()
     else:
         form = CreateCourseForm()
     return render(req, template_name="courses/create_course.html",context={"form":form})
