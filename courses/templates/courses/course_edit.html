@@ -16,7 +16,7 @@ Edit Course
 <div class="container mt-3">
     <div class="row  justify-content-center">
         <div class="col-5">
-            <form  method="POST" novalidate>
+            <form  method="POST" novalidate enctype="multipart/form-data">
                 {% csrf_token %}
 
                 {% for item in form %}

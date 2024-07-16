@@ -10,7 +10,7 @@ class Category(models.Model):
 class Course(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField()
-    imageUrl = models.CharField(max_length=50)
+    image = models.ImageField(upload_to="images", default="")
     date = models.DateField(auto_now_add=True)
     slug = models.SlugField(default="", unique=True, blank=False, db_index=True)
     categories = models.ManyToManyField(Category,related_name="courses")
@@ -19,3 +19,6 @@ class Course(models.Model):
 
     def __str__(self) -> str:
         return self.title
+
+class UploadImage(models.Model):
+    image = models.ImageField(upload_to="images")

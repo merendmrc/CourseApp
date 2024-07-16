@@ -15,7 +15,6 @@ class CreateCourseForm(forms.ModelForm):
         }
         widgets = {
             "title": forms.TextInput(attrs={"class": "form-control"}),
-            "imageUrl": forms.TextInput(attrs={"class": "form-control"}),
             "slug": forms.TextInput(attrs={"class": "form-control"}),
             "categories": forms.SelectMultiple(attrs={"class": "form-control"}),
             "description": forms.Textarea(attrs={"class": "form-control"}),
@@ -37,10 +36,6 @@ class CreateCourseForm(forms.ModelForm):
     "categories": {
         "required": "Kategori seçilmelidir!"
     },
-    "imageUrl": {
-        "required": "Görsel URL'si boş geçilemez!",
-        "max_length": "Maximum 200 karakter girebilirsiniz."
-    }
 }
 
 
@@ -58,7 +53,6 @@ class EditCourseForm(forms.ModelForm):
         }
         widgets = {
             "title": forms.TextInput(attrs={"class": "form-control"}),
-            "imageUrl": forms.TextInput(attrs={"class": "form-control"}),
             "categories": forms.SelectMultiple(attrs={"class": "form-control"}),
             "slug": forms.TextInput(attrs={"class": "form-control"}),
             "description": forms.Textarea(attrs={"class": "form-control"}),
@@ -80,8 +74,7 @@ class EditCourseForm(forms.ModelForm):
     "categories": {
         "required": "Kategori seçilmelidir!"
     },
-    "imageUrl": {
-        "required": "Görsel URL'si boş geçilemez!",
-        "max_length": "Maximum 200 karakter girebilirsiniz."
-    }
 }
+
+class UploadForm(forms.Form):
+    image = forms.ImageField()

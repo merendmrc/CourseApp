@@ -8,20 +8,23 @@
                     Courses
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item">    
                 <a href="{% url "create_course" %}" class="nav-link navbar">
                     Admin-Kurs ekle
                 </a>
             </li>
-
             <li class="nav-item">
                 <a href="{% url "course_list" %}" class="nav-link navbar">
                     Admin-Kurslar
                 </a>
             </li>
 
-
-        </ul>
+            <li class="nav-item">
+                <a href="{% url "upload_image" %}" class="nav-link navbar">
+                    Admin-Upload Image
+                </a>
+            </li>
+                 </ul>
         <form action="{% url "search" %}" class="d-flex" role="search">
             <input name="q" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-light" type="submit">Search</button>

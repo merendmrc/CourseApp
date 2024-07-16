@@ -1,9 +1,11 @@
 from datetime import date
 from django.shortcuts import get_object_or_404, render,redirect
-from .models import Course,Category
+from .models import Course,Category, UploadImage
 from django.core.paginator import Paginator
 from django.db.models import Q
-from courses.forms import CreateCourseForm, EditCourseForm
+from courses.forms import CreateCourseForm, EditCourseForm, UploadForm
+from random import randint
+from os import path
 
 def index(req):
     courses = Course.objects.filter(is_home = 1).order_by("-is_active")
@@ -63,7 +65,7 @@ def getCoursesByCategoryName(req, slug):
 def create_course(req):
    
     if req.method == "POST":
-        form = CreateCourseForm(req.POST)
+        form = CreateCourseForm(req.POST, req.FILES)
         
         if form.is_valid():
             form.save()
@@ -80,7 +82,7 @@ def course_list(req):
 def course_edit(req, id):
     course = get_object_or_404(Course, pk=id)
     if req.method == "POST":
-        form = EditCourseForm(req.POST, instance=course)
+        form = EditCourseForm(req.POST, req.FILES, instance=course)
         form.save()
         return redirect("course_list")
     else:
@@ -95,3 +97,15 @@ def course_delete(req, id):
         course.delete()
         return redirect("course_list")
     return render(req, template_name="courses/course_delete.html", context={"course":course})
+
+def upload(req):
+    if req.method == "POST":
+        uploaded_image = req.FILES["image"]
+        form = UploadForm(req.POST, req.FILES)
+
+        if form.is_valid():
+            model = UploadImage(image= req.FILES["image"])
+            model.save()
+    else:
+        form = UploadForm()
+    return render(req, template_name="courses/upload.html", context={"form":form})
