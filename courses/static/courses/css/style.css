@@ -9,6 +9,7 @@
     border-color: red;
 }
 
-.btn{
-    background-color: #0F5257 !important;
+.submitButton{
+    background-color: #0F5257 ;
+    color: #FFFF;
 }

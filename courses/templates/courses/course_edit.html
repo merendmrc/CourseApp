@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block Title %}
-Create Course
+Edit Course
 {% endblock Title %}
 
 {% block css_files %}
@@ -15,8 +15,8 @@ Create Course
 
 <div class="container mt-3">
     <div class="row  justify-content-center">
-        <div class="col-9">
-            <form action="{% url "create_course" %}" method="POST" novalidate>
+        <div class="col-5">
+            <form  method="POST" novalidate>
                 {% csrf_token %}
 
                 {% for item in form %}

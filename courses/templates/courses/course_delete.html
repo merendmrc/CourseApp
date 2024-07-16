@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block Title %}
+Edit Course
+{% endblock Title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'courses/css/style.css'%}">
+{% endblock css_files %}
+
+
+{% block content %}
+
+<div class="container mt-3">
+    <div class="row  justify-content-center">
+        <div class="col-5">
+          <p>
+            <strong>
+                {{course.title}} </strong> isimli kursu silmek istediğinize emin misiniz?
+                <form action="{% url "course_delete" course.id %}" method="POST">
+                    {% csrf_token %}                    
+                    <a style="width:70px;" class="btn btn-success" href="{% url "course_list" %}">Vazgeç</a>
+                    <button style="width:70px;" type="submit" class="btn btn-danger">Sil</button>
+                </form>
+           
+          </p>
+        </div>
+</div>
+
+{% endblock  %}
+
+{% block js_files %}
+<script src="{% static "courses/js/scripts.js" %}"></script>
+{% endblock js_files %}
+

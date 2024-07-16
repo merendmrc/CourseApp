@@ -3,16 +3,26 @@ from django.shortcuts import get_object_or_404, render,redirect
 from .models import Course,Category
 from django.core.paginator import Paginator
 from django.db.models import Q
-from courses.forms import CreateCourseForm
+from courses.forms import CreateCourseForm, EditCourseForm
 
 def index(req):
-    courses = Course.objects.filter(is_home = 1)
+    courses = Course.objects.filter(is_home = 1).order_by("-is_active")
     categories = Category.objects.all()
 
     return render(req, template_name="courses/index.html", context={
         'categories': categories,
         'courses': courses
     })
+
+def tum(req):
+    courses = Course.objects.all().order_by("-is_active")
+    categories = Category.objects.all()
+
+    return render(req, template_name="courses/index.html", context={
+        'categories': categories,
+        'courses': courses
+    })
+
 
 def search(req):
     if "q" in req.GET and req.GET["q"] != "":
@@ -60,3 +70,28 @@ def create_course(req):
     else:
         form = CreateCourseForm()
     return render(req, template_name="courses/create_course.html",context={"form":form})
+
+def course_list(req):
+    courses = Course.objects.all()
+    return render(req, template_name="courses/course_list.html", context={
+        "courses": courses
+    })
+
+def course_edit(req, id):
+    course = get_object_or_404(Course, pk=id)
+    if req.method == "POST":
+        form = EditCourseForm(req.POST, instance=course)
+        form.save()
+        return redirect("course_list")
+    else:
+        form = EditCourseForm(instance=course)
+    return render(req, template_name="courses/course_edit.html", context={
+        "form":form 
+    })
+
+def course_delete(req, id):
+    course = get_object_or_404(Course, pk=id)
+    if req.method == "POST":
+        course.delete()
+        return redirect("course_list")
+    return render(req, template_name="courses/course_delete.html", context={"course":course})
