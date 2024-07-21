@@ -97,15 +97,3 @@ def course_delete(req, id):
         course.delete()
         return redirect("course_list")
     return render(req, template_name="courses/course_delete.html", context={"course":course})
-
-def upload(req):
-    if req.method == "POST":
-        uploaded_image = req.FILES["image"]
-        form = UploadForm(req.POST, req.FILES)
-
-        if form.is_valid():
-            model = UploadImage(image= req.FILES["image"])
-            model.save()
-    else:
-        form = UploadForm()
-    return render(req, template_name="courses/upload.html", context={"form":form})

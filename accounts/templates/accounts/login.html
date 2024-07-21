@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block Title %}
+Kurs listesi
+{% endblock Title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'courses/css/style.css'%}">
+{% endblock css_files %}
+
+
+{% block content %}
+
+<div class="container mt-3">
+    <div class="row  justify-content-center">
+        <div class="col-9">
+            <h1>Login</h1>
+            <hr>
+            <form method="POST">
+                {% csrf_token %}
+                
+                {% if error %}
+                <div class="alert alert-danger">
+                    {{error}}
+                </div>
+                {% else %}
+                {% endif %}
+
+
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username:</label>
+                <input type="text" class="form-control" name="username" id="username">
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password:</label>
+                <input type="text" class="form-control" name="password" id="password">
+                </div>
+                <button type="submit" class= "btn btn-success">Login</button>
+
+            </form>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock  %}
+
+{% block js_files %}
+<script src="{% static "courses/js/scripts.js" %}"></script>
+{% endblock js_files %}
+
