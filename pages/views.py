@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
 
+
 def index(req):
-    return render(req, template_name="pages/index.html")
+    return redirect("index")
 
 def contact(req):
     return render(req, template_name="pages/contact.html")

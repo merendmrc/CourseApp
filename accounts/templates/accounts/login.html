@@ -19,29 +19,12 @@ Kurs listesi
             <h1>Login</h1>
             <hr>
             <form method="POST">
-                {% csrf_token %}
-                
-                {% if error %}
-                <div class="alert alert-danger">
-                    {{error}}
-                </div>
-                {% else %}
-                {% endif %}
+            {% csrf_token %}
+                {% include "includes/_form.html" %}
 
-
-                <div class="mb-3">
-                    <label for="username" class="form-label">Username:</label>
-                <input type="text" class="form-control" name="username" id="username">
-                </div>
-
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password:</label>
-                <input type="text" class="form-control" name="password" id="password">
-                </div>
                 <button type="submit" class= "btn submitButton">Login</button>
 
             </form>
-            
         </div>
     </div>
 </div>

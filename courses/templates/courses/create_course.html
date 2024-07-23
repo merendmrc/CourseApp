@@ -19,12 +19,8 @@ Create Course
             <form action="{% url "create_course" %}" method="POST" novalidate enctype="multipart/form-data">
                 {% csrf_token %}
 
-                {% for item in form %}
-                <div class="mb-3 {% if item.errors %}invalid{% endif %}">
-                    <label for="{{item.id_for_label}}" class="form-label">{{item.label}}:</label>
-                    {{item}} {{item.errors}}
-                </div>
-                {% endfor %}
+                    {% include "includes/_form.html" %}
+                
                 <button class="btn btn-success" type="submit">
                     Kaydet
                 </button>
