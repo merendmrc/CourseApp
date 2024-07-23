@@ -75,6 +75,3 @@ class EditCourseForm(forms.ModelForm):
         "required": "Kategori seçilmelidir!"
     },
 }
-
-class UploadForm(forms.Form):
-    image = forms.ImageField()

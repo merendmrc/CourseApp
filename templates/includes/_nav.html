@@ -13,28 +13,33 @@
                     Courses
                 </a>
             </li>
+            {% if user.is_superuser %}
             <li class="nav-item">    
                 <a href="{% url "create_course" %}" class="nav-link navbar">
                     Admin-Kurs ekle
                 </a>
             </li>
+            {% endif %}
+            {% if user.is_superuser %}
             <li class="nav-item">
                 <a href="{% url "course_list" %}" class="nav-link navbar">
                     Admin-Kurslar
                 </a>
             </li>
+            {% else %}
+            {% endif %}
 
 
             </li>
         </ul>
 
 
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto" id="acc_list">
 
             {% if user.is_authenticated %}
             <li class="nav-item">
                 <a href="#" class="nav-link navbar">
-                    {{user.username}}
+                    Hoşgeldiniz, {{user.username}}{% if user.is_superuser %} (s){% endif %}
                 </a>
             </li>
             <li class="nav-item">
@@ -56,12 +61,5 @@
             {% endif %}
         </ul>
         </div>
-
-        
-        <form action="{% url "search" %}" class="d-flex" role="search">
-            <input name="q" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light" type="submit">Search</button>
-        </form>
-
     </div>
 </nav>

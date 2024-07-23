@@ -1,8 +1,9 @@
 {% load static %}
-<a href=" {% url "courses_details" course.slug %}" class="text-decoration-none">
-<div class="card mb-3" style="max-width: 540px; {% if course.is_active == 0 %}
+
+<div class="card mb-3" style="max-width: 540px;{% if course.is_active == 0 %}
 opacity: 0.6;
 {% endif %} ">
+<a href=" {% url "courses_details" course.slug %}" style="  color: inherit; " class="text-decoration-none">
     <div class="row g-0">
       <div class="col-md-4">
         <img src="{{course.image.url }}" class="img-fluid h-100 w-120" alt="{{course.title}}">
@@ -17,9 +18,9 @@ opacity: 0.6;
             <div class="col-6 text-start">
               <p class="card-text"><small class="text-muted">{{course.date}}</small></p>
             </div>
-            <div class="col-6 text-end">
+            <div class="col-6 text-right">
               {% if course.is_active %}
-              <span class="badge bg-success">Aktif</span>
+              <span class="badge submitButton">Aktif</span>
               {% else %}
               <span class="badge bg-warning">Aktif değil</span>
               {% endif %}
@@ -28,5 +29,5 @@ opacity: 0.6;
         </div>
       </div>
     </div>
+  </a>
   </div>
-</a>

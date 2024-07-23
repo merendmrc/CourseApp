@@ -23,7 +23,7 @@
       </li>
       {% endif %}
   </ul>
-
-{% else %}
-
+  <small class="text-muted">
+    Toplam {{course_count}} adet kayıttan {{page_obj.object_list|length}} kadarı gösteriliyor.
+  </small>
 {% endif %}

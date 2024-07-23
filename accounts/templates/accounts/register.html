@@ -16,7 +16,7 @@ Kurs listesi
 <div class="container mt-3">
     <div class="row  justify-content-center">
         <div class="col-9">
-            <h1>Login</h1>
+            <h1>Register</h1>
             <hr>
             <form method="POST">
                 {% csrf_token %}
@@ -28,6 +28,16 @@ Kurs listesi
                 {% else %}
                 {% endif %}
 
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" class="form-control" name="name" id="name">
+                </div>
+
+                <div class="mb-3">
+                    <label for="surname" class="form-label">Surname:</label>
+                    <input type="text" class="form-control" name="last_name" id="surname">
+                </div>
 
                 <div class="mb-3">
                     <label for="username" class="form-label">Username:</label>
@@ -49,7 +59,7 @@ Kurs listesi
                     <input type="text" class="form-control" name="repassword" id="repassword">
                 </div>
 
-                <button type="submit" class= "btn btn-success">Login</button>
+                <button type="submit" class= "btn submitButton">Register</button>
 
             </form>
             
