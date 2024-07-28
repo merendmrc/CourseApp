@@ -20,13 +20,18 @@
         </div>
         <div class="col-7"> 
             <h1 class="h3">{{course.title}}</h1>
-            <p>{{course.description}}</p>
+            <p>{{course.subtitle}}</p>
             {% if course.is_active == 0 %}
             <h1 class="badge bg-danger">
                 KURS AKTIF DEGIL!
             </h1>
         {% else %}
         {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10">
+            <p>{{course.description|safe}}</p>
         </div>
     </div>
 </div>

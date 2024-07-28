@@ -1,6 +1,6 @@
 from datetime import date
 from django.shortcuts import get_object_or_404, render,redirect
-from .models import Course,Category, UploadImage
+from .models import Course,Category, Slider, UploadImage
 from django.core.paginator import Paginator
 from django.db.models import Q
 from courses.forms import CreateCourseForm, EditCourseForm
@@ -13,6 +13,7 @@ def is_super(user):
 def index(req):
     courses = Course.objects.filter(is_home = 1).order_by("-is_active")
     categories = Category.objects.all()
+    sliders = Slider.objects.filter(is_active=True)
  
     paginator = Paginator(courses, 10)
     page = req.GET.get('page',1)
@@ -21,7 +22,8 @@ def index(req):
     return render(req, template_name="courses/index.html", context={
         'categories': categories,
         'page_obj': page_obj,
-        'course_count':len(courses)
+        'course_count':len(courses),
+        'sliders':sliders
     })
 
 def tum(req):

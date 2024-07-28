@@ -47,6 +47,13 @@
                     Logout
                 </a>
             </li>
+            
+            <li class="nav-item">
+                <a href="{% url "change_password" %}" class="nav-link navbar">
+                    ChangePassword
+                </a>
+            </li>
+
             {% else %}
             <li class="nav-item">    
                 <a href="{% url "user_login" %}" class="nav-link navbar">

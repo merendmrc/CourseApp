@@ -1,3 +1,9 @@
+         <div class="mb-3">
+            <form action="{% url "search" %}" class="d-flex" role="search">
+                <input name="q" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn submitButton" type="submit">Search</button>
+            </form>
+        </div>
 <div class="list-group">
     <a href="{% url "tum" %}" class="list-group-item list-group-item-action">Tum kurslar</a>
     {% for category in categories %}

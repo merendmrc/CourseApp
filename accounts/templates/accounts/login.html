@@ -18,7 +18,7 @@ Kurs listesi
         <div class="col-9">
             <h1>Login</h1>
             <hr>
-            <form method="POST">
+            <form method="POST" novalidate>
             {% csrf_token %}
                 {% include "includes/_form.html" %}
 

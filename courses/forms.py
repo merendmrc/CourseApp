@@ -16,6 +16,7 @@ class CreateCourseForm(forms.ModelForm):
         widgets = {
             "title": forms.TextInput(attrs={"class": "form-control"}),
             "slug": forms.TextInput(attrs={"class": "form-control"}),
+            "subtitle": forms.TextInput(attrs={"class":"form-control"}),
             "categories": forms.SelectMultiple(attrs={"class": "form-control"}),
             "description": forms.Textarea(attrs={"class": "form-control"}),
         }

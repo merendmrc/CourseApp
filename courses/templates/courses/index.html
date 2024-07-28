@@ -15,18 +15,13 @@ Kurslar anasayfasi
 
 <div class="container mt-3">
     <div class="row">
-        <div class="col-3">
+        <div class="col-3">  
             {% include "courses/includes/_categories.html" %}
         </div>
         <div class="col-9"> 
-            
-        <div class="mb-3" style="width:500px;">
-            <form action="{% url "search" %}" class="d-flex" role="search">
-                <input name="q" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn submitButton" type="submit">Search</button>
-            </form>
+        <div style="width:600px;">
+            {% include "courses/includes/_slider.html" %}
         </div>
-
             {% if page_obj.object_list|length == 0 %}
                 <div class="alert alert-warning">Sectiginiz kategoride kurs bulunamadi !</div>
             {% else %}

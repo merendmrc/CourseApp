@@ -1,0 +1,26 @@
+{% load static %}
+<div id="carouselExampleControls" class="carousel slide mb-3" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    {% for slider in sliders %}
+          <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="{{forloop.counter0}}" class="active" aria-label="Slide 1"></button>    
+    {% endfor %}
+  </div>
+  <div class="carousel-inner">
+    {% for slider in sliders %}
+      <div class="carousel-item active">
+        <a href="{% url "courses_details" slider.course.slug %}">
+        <img class="d-block w-100" src="{{slider.image.url }}" alt="First slide">
+        </a>
+      </div>
+    {% endfor %}
+
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
