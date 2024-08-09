@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://merendmrcc.pythonanywhere.com/</loc>
+        <lastmod>2024-08-09</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://merendmrcc.pythonanywhere.com/search</loc>
+        <lastmod>2024-08-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://merendmrcc.pythonanywhere.com/tum-kurslar</loc>
+        <lastmod>2024-08-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://merendmrcc.pythonanywhere.com/create-course</loc>
+        <lastmod>2024-08-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://merendmrcc.pythonanywhere.com/course-list</loc>
+        <lastmod>2024-08-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <!-- Dinamik URL'ler için örnekleri sabit hale getirin veya dışarıda işleyin -->
+    <url>
+        <loc>https://merendmrcc.pythonanywhere.com/course-edit/1</loc> <!-- Örnek ID -->
+        <lastmod>2024-08-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://merendmrcc.pythonanywhere.com/course-delete/1</loc> <!-- Örnek ID -->
+        <lastmod>2024-08-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://merendmrcc.pythonanywhere.com/some-slug</loc> <!-- Örnek slug -->
+        <lastmod>2024-08-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://merendmrcc.pythonanywhere.com/kategori/some-category</loc> <!-- Örnek kategori slug -->
+        <lastmod>2024-08-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://merendmrcc.pythonanywhere.com/accounts/login</loc>
+        <lastmod>2024-08-09</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://merendmrcc.pythonanywhere.com/accounts/logout</loc>
+        <lastmod>2024-08-09</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://merendmrcc.pythonanywhere.com/accounts/register</loc>
+        <lastmod>2024-08-09</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://merendmrcc.pythonanywhere.com/accounts/change-password</loc>
+        <lastmod>2024-08-09</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+</urlset>

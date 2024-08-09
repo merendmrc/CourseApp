@@ -6,6 +6,8 @@ from django.db.models import Q
 from courses.forms import CreateCourseForm, EditCourseForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
+from django.template.loader import render_to_string
+from django.http import HttpResponse
 
 def is_super(user):
     return user.is_superuser
@@ -14,7 +16,6 @@ def index(req):
     courses = Course.objects.filter(is_home = 1).order_by("-is_active")
     categories = Category.objects.all()
     sliders = Slider.objects.filter(is_active=True)
- 
     paginator = Paginator(courses, 10)
     page = req.GET.get('page',1)
     page_obj = paginator.page(page)
@@ -115,3 +116,8 @@ def course_delete(req, id):
         course.delete()
         return redirect("course_list")
     return render(req, template_name="courses/course_delete.html", context={"course":course})
+
+
+def sitemap_view(request):
+    xml_content = render_to_string('sitemap.xml')
+    return HttpResponse(xml_content, content_type='application/xml')

@@ -17,12 +17,12 @@ from os import getenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECRET_KEY = 'django-insecure-km4a0#tqjvn%0)8of&7h4od3vf_9yd-v^==0wuix7wctylz^vi'
-SECRET_KEY = getenv("SECRET_KEY")
+SECRET_KEY = getenv("SECRET_KEY", 'ye7i4d3ynqt@)_-!zp5^rl9n0tf%o$3l)m-(i9tra^u0o@uzo%')
 
-DEBUG = getenv("IS_DEVELOPMENT", True)
+DEBUG = getenv("IS_DEV", True)
 
 ALLOWED_HOSTS = [
-    getenv("APP_HOST")
+    "merendmrcc.pythonanywhere.com"
 ]
 
 
